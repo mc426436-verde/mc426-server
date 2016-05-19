@@ -1,0 +1,15 @@
+version: '2'
+services:
+    dino-app:
+        image: dino
+        external_links:
+            - dino-mysql:mysql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/dino?useUnicode=true&characterEncoding=utf8&useSSL=false
+        ports:
+            - 8080:8080
+    dino-mysql:
+        extends:
+            file: mysql.yml
+            service: dino-mysql
