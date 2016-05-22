@@ -1,0 +1,18 @@
+entity Room {
+	roomName String,
+  roomDescription String
+}
+
+entity Device {
+	deviceName String,
+  deviceDescription String
+	status DeviceStatusEnum
+}
+
+enum DeviceStatusEnum {
+	ON, OFF
+}
+
+relationship OneToMany {
+	Room{devices} to Device
+}

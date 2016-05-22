@@ -1,0 +1,24 @@
+{
+    "dinoApp": {
+        "room" : {
+            "home": {
+                "title": "Rooms",
+                "createLabel": "Criar novo Room",
+                "createOrEditLabel": "Criar ou editar Room",
+                "search": "Pesquisar por Room"
+            },
+            "created": "Um novo Room é criado com o identificador {{ param }}",
+            "updated": "Um Room é atualizado com o identificador {{ param }}",
+            "deleted": "Um Room é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Room {{ id }}?"
+            },
+            "detail": {
+                "title": "Room"
+            },
+            "roomName": "Room Name",
+            "roomDescription": "Room Description",
+            "devices": "Devices"
+        }
+    }
+}

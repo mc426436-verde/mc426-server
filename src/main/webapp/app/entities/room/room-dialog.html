@@ -1,0 +1,38 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRoomLabel" translate="dinoApp.room.home.createOrEditLabel">Create or edit a Room</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.room.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.room.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="dinoApp.room.roomName" for="field_roomName">Room Name</label>
+            <input type="text" class="form-control" name="roomName" id="field_roomName"
+                    ng-model="vm.room.roomName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="dinoApp.room.roomDescription" for="field_roomDescription">Room Description</label>
+            <input type="text" class="form-control" name="roomDescription" id="field_roomDescription"
+                    ng-model="vm.room.roomDescription"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

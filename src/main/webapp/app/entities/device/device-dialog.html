@@ -1,0 +1,51 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDeviceLabel" translate="dinoApp.device.home.createOrEditLabel">Create or edit a Device</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.device.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.device.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="dinoApp.device.deviceName" for="field_deviceName">Device Name</label>
+            <input type="text" class="form-control" name="deviceName" id="field_deviceName"
+                    ng-model="vm.device.deviceName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="dinoApp.device.deviceDescription" for="field_deviceDescription">Device Description</label>
+            <input type="text" class="form-control" name="deviceDescription" id="field_deviceDescription"
+                    ng-model="vm.device.deviceDescription"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="dinoApp.device.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.device.status" id="field_status">
+                <option value="ON" translate="dinoApp.DeviceStatusEnum.ON">ON</option>
+                <option value="OFF" translate="dinoApp.DeviceStatusEnum.OFF">OFF</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label translate="dinoApp.device.room" for="field_room">Room</label>
+            <select class="form-control" id="field_room" name="room" ng-model="vm.device.room" ng-options="room as room.id for room in vm.rooms track by room.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

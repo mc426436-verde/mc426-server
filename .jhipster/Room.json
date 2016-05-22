@@ -1,0 +1,27 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "devices",
+      "otherEntityName": "device",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "room"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "roomName",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "roomDescription",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160522144316",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}
