@@ -20,6 +20,12 @@
         <dd>
             <a ui-sref="room-detail({id:vm.device.room.id})">{{vm.device.room.id}}</a>
         </dd>
+        <dt><span translate="dinoApp.device.share">Share</span></dt>
+        <dd>
+            <span ng-repeat="share in vm.device.shares">
+                <a ui-sref="share-detail({id: {{share.id}}})">{{share.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
     </dl>
 
     <button type="submit"

@@ -39,6 +39,10 @@
                 <option value=""></option>
             </select>
         </div>
+        <div class="form-group">
+            <label translate="dinoApp.device.share" for="field_share">Share</label>
+            <select class="form-control" id="field_share" multiple name="share" ng-model="vm.device.shares" ng-options="share as share.id for share in vm.shares track by share.id"></select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

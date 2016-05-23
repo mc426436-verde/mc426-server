@@ -1,0 +1,23 @@
+{
+    "dinoApp": {
+        "share" : {
+            "home": {
+                "title": "Shares",
+                "createLabel": "Criar novo Share",
+                "createOrEditLabel": "Criar ou editar Share",
+                "search": "Pesquisar por Share"
+            },
+            "created": "Um novo Share é criado com o identificador {{ param }}",
+            "updated": "Um Share é atualizado com o identificador {{ param }}",
+            "deleted": "Um Share é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Share {{ id }}?"
+            },
+            "detail": {
+                "title": "Share"
+            },
+            "user": "User",
+            "device": "Device"
+        }
+    }
+}

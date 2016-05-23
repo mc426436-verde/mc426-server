@@ -18,7 +18,7 @@
             },
             "roomName": "Room Name",
             "roomDescription": "Room Description",
-            "devices": "Devices"
+            "device": "Device"
         }
     }
 }

@@ -19,7 +19,8 @@
             "deviceName": "Device Name",
             "deviceDescription": "Device Description",
             "status": "Status",
-            "room": "Room"
+            "room": "Room",
+            "share": "Share"
         }
     }
 }

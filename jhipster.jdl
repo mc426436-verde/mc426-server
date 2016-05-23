@@ -9,10 +9,21 @@ entity Device {
 	status DeviceStatusEnum
 }
 
+entity Share {
+}
+
 enum DeviceStatusEnum {
 	ON, OFF
 }
 
 relationship OneToMany {
-	Room{devices} to Device
+	Room{device} to Device
+}
+
+relationship ManyToOne {
+	Share{user} to User
+}
+
+relationship ManyToMany {
+	Device{share} to Share{device}
 }

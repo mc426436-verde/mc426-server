@@ -6,6 +6,14 @@
       "otherEntityName": "room",
       "relationshipType": "many-to-one",
       "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "share",
+      "otherEntityName": "share",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true
     }
   ],
   "fields": [

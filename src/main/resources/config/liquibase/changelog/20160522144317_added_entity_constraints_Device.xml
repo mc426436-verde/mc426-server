@@ -14,5 +14,16 @@
                                  referencedColumnNames="id"
                                  referencedTableName="room"/>
 
+        <addForeignKeyConstraint baseColumnNames="devices_id"
+                                 baseTableName="device_share"
+                                 constraintName="fk_device_share_share_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="device"/>
+        <addForeignKeyConstraint baseColumnNames="shares_id"
+                                 baseTableName="device_share"
+                                 constraintName="fk_device_share_device_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="share"/>
+        
     </changeSet>
 </databaseChangeLog>

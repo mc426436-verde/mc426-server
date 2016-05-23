@@ -2,37 +2,37 @@
 
 describe('Controller Tests', function() {
 
-    describe('Device Management Detail Controller', function() {
+    describe('Share Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockDevice, MockRoom, MockShare;
+        var MockEntity, MockShare, MockUser, MockDevice;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockDevice = jasmine.createSpy('MockDevice');
-            MockRoom = jasmine.createSpy('MockRoom');
             MockShare = jasmine.createSpy('MockShare');
+            MockUser = jasmine.createSpy('MockUser');
+            MockDevice = jasmine.createSpy('MockDevice');
             
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
-                'Device': MockDevice,
-                'Room': MockRoom,
-                'Share': MockShare
+                'Share': MockShare,
+                'User': MockUser,
+                'Device': MockDevice
             };
             createController = function() {
-                $injector.get('$controller')("DeviceDetailController", locals);
+                $injector.get('$controller')("ShareDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'dinoApp:deviceUpdate';
+                var eventType = 'dinoApp:shareUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

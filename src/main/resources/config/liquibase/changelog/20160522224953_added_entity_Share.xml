@@ -14,42 +14,19 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Device.
+        Added the entity Share.
     -->
-    <changeSet id="20160522144317-1" author="jhipster">
-        <createTable tableName="device">
+    <changeSet id="20160522224953-1" author="jhipster">
+        <createTable tableName="share">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="device_name" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="device_description" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="status" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            
-            <column name="room_id" type="bigint">
+            <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
-        <createTable tableName="device_share">
-            <column name="shares_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="devices_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="devices_id, shares_id" tableName="device_share"/>
         
     </changeSet>
 </databaseChangeLog>

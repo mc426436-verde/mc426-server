@@ -87,7 +87,7 @@ public class DeviceResource {
     @Timed
     public List<Device> getAllDevices() {
         log.debug("REST request to get all Devices");
-        List<Device> devices = deviceRepository.findAll();
+        List<Device> devices = deviceRepository.findAllWithEagerRelationships();
         return devices;
     }
 
@@ -103,7 +103,7 @@ public class DeviceResource {
     @Timed
     public ResponseEntity<Device> getDevice(@PathVariable Long id) {
         log.debug("REST request to get Device : {}", id);
-        Device device = deviceRepository.findOne(id);
+        Device device = deviceRepository.findOneWithEagerRelationships(id);
         return Optional.ofNullable(device)
             .map(result -> new ResponseEntity<>(
                 result,

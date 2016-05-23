@@ -3,6 +3,8 @@ package br.unicamp.ic.timeverde.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import br.unicamp.ic.timeverde.domain.enumeration.DeviceStatusEnum;
@@ -32,6 +34,12 @@ public class Device implements Serializable {
 
     @ManyToOne
     private Room room;
+
+    @ManyToMany
+    @JoinTable(name = "device_share",
+               joinColumns = @JoinColumn(name="devices_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="shares_id", referencedColumnName="ID"))
+    private Set<Share> shares = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -71,6 +79,14 @@ public class Device implements Serializable {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public Set<Share> getShares() {
+        return shares;
+    }
+
+    public void setShares(Set<Share> shares) {
+        this.shares = shares;
     }
 
     @Override
