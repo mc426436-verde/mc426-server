@@ -119,7 +119,7 @@ public class DeviceResource {
      * @param id the id of the device change status
      * @return status 200 (OK), or status 404 (Not Found)
      */
-    @RequestMapping(value = "/devices/{id}/{status}",
+    @RequestMapping(value = "/setStatus/{id}/{status}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
