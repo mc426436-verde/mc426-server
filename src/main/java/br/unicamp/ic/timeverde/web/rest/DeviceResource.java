@@ -1,5 +1,6 @@
 package br.unicamp.ic.timeverde.web.rest;
 
+import br.unicamp.ic.timeverde.domain.enumeration.DeviceStatusEnum;
 import com.codahale.metrics.annotation.Timed;
 import br.unicamp.ic.timeverde.domain.Device;
 import br.unicamp.ic.timeverde.repository.DeviceRepository;
@@ -18,6 +19,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+
 /**
  * REST controller for managing Device.
  */
@@ -26,10 +28,10 @@ import java.util.Optional;
 public class DeviceResource {
 
     private final Logger log = LoggerFactory.getLogger(DeviceResource.class);
-        
+
     @Inject
     private DeviceRepository deviceRepository;
-    
+
     /**
      * POST  /devices : Create a new device.
      *
@@ -104,6 +106,31 @@ public class DeviceResource {
     public ResponseEntity<Device> getDevice(@PathVariable Long id) {
         log.debug("REST request to get Device : {}", id);
         Device device = deviceRepository.findOneWithEagerRelationships(id);
+        return Optional.ofNullable(device)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * GET  /devices/:id : get the "id" device.
+     *
+     * @param id the id of the device change status
+     * @return status 200 (OK), or status 404 (Not Found)
+     */
+    @RequestMapping(value = "/devices/{id}/{status}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Device> setStatus(@PathVariable Long id, @PathVariable String status) {
+        log.debug("REST request to set Device status: {}: {}", id, status);
+        Device device = deviceRepository.findOneWithEagerRelationships(id);
+
+        DeviceStatusEnum deviceStatus = DeviceStatusEnum.valueOf(status);
+        device.setStatus(deviceStatus);
+        deviceRepository.save(device);
+
         return Optional.ofNullable(device)
             .map(result -> new ResponseEntity<>(
                 result,
