@@ -1,0 +1,9 @@
+{
+    "dinoApp": {
+        "DeviceStatusEnum" : {
+            "null": "",
+            "ON": "ON",
+            "OFF": "OFF"
+        }
+    }
+}

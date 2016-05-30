@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span translate="dinoApp.room.detail.title">Room</span> {{vm.room.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="dinoApp.room.roomName">RoomName</dt></dt>
+        <dd>
+            <span>{{vm.room.roomName}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="dinoApp.room.roomDescription">RoomDescription</dt></dt>
+        <dd>
+            <span>{{vm.room.roomDescription}}<span>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

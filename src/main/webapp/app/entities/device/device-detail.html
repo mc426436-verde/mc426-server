@@ -1,0 +1,40 @@
+
+<div>
+    <h2><span translate="dinoApp.device.detail.title">Device</span> {{vm.device.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="dinoApp.device.deviceName">DeviceName</dt></dt>
+        <dd>
+            <span>{{vm.device.deviceName}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="dinoApp.device.deviceDescription">DeviceDescription</dt></dt>
+        <dd>
+            <span>{{vm.device.deviceDescription}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="dinoApp.device.status">Status</dt></dt>
+        <dd>
+            <span translate="{{'dinoApp.DeviceStatusEnum.' + vm.device.status}}">{{vm.device.status}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="dinoApp.device.room">room</span></dt>
+        <dd>
+            <a ui-sref="room-detail({id:vm.device.room.id})">{{vm.device.room.id}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="dinoApp.device.share">share</span></dt>
+        <dd>
+            <span ng-repeat="share in vm.device.shares">
+                <a ui-sref="share-detail({id: {{share.id}}})">{{share.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

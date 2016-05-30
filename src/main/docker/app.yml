@@ -1,0 +1,15 @@
+version: '2'
+services:
+    dino-app:
+        image: dino
+        external_links:
+            - dino-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/dino
+        ports:
+            - 8080:8080
+    dino-postgresql:
+        extends:
+            file: postgresql.yml
+            service: dino-postgresql

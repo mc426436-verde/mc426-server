@@ -1,0 +1,41 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "room",
+      "otherEntityName": "room",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "share",
+      "otherEntityName": "share",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "deviceName",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "deviceDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "status",
+      "fieldType": "DeviceStatusEnum",
+      "fieldValues": "ON,OFF"
+    }
+  ],
+  "changelogDate": "20160528214445",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}
