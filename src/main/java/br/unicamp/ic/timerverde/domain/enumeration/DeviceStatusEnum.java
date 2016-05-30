@@ -4,5 +4,15 @@ package br.unicamp.ic.timerverde.domain.enumeration;
  * The DeviceStatusEnum enumeration.
  */
 public enum DeviceStatusEnum {
-    ON,OFF
+    OFF(0),
+    ON(1);
+
+    private int status;
+    DeviceStatusEnum(int status) {
+        this.status = status;
+    }
+
+    public int value(){
+        return this.status;
+    }
 }

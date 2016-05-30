@@ -134,10 +134,12 @@ public class DeviceResource {
         Optional<Device> optionalDevice = Optional.ofNullable(deviceRepository.findOneWithEagerRelationships(id));
         optionalDevice.ifPresent(result -> {
             if(result.getStatus().equals(DeviceStatusEnum.OFF)){
-                setDeviceStatus(result, DeviceStatusEnum.ON);
+                result.setStatus(DeviceStatusEnum.ON);
             } else {
-                setDeviceStatus(result, DeviceStatusEnum.OFF);
+                result.setStatus(DeviceStatusEnum.OFF);
             }
+            deviceRepository.save(result);
+            updateArduino(result);
         });
 
         return optionalDevice
@@ -163,7 +165,8 @@ public class DeviceResource {
 
         optionalDevice.ifPresent(result -> {
             if(!result.getStatus().equals(deviceStatus)) {
-                setDeviceStatus(result, deviceStatus);
+              result.setStatus(deviceStatus);
+              deviceRepository.save(result);
             }
         });
 
@@ -172,19 +175,16 @@ public class DeviceResource {
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    private void setDeviceStatus(Device device, DeviceStatusEnum deviceStatus) {
-        device.setStatus(deviceStatus);
-        deviceRepository.save(device);
-
+    private void updateArduino(Device device) {
         try {
             String ip = this.env.getProperty("dino.arduino.ip");
             String port = this.env.getProperty("dino.arduino.port");
             Socket clientSocket = new Socket(ip, Integer.valueOf(port));
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-            outToServer.writeBytes(deviceStatus.toString() + '\n');
+            outToServer.writeBytes(device.getId() + ":" + device.getStatus().value());
             clientSocket.close();
         } catch (IOException e) {
-            log.error("Failed to update arduino", e);
+            log.error("Failed to update arduino");
         }
     }
 
