@@ -4,10 +4,12 @@ package br.unicamp.ic.timerverde.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.Objects;
 
 import br.unicamp.ic.timerverde.domain.enumeration.DeviceStatusEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Device.
@@ -40,6 +42,9 @@ public class Device implements Serializable {
                joinColumns = @JoinColumn(name="devices_id", referencedColumnName="ID"),
                inverseJoinColumns = @JoinColumn(name="shares_id", referencedColumnName="ID"))
     private Set<Share> shares = new HashSet<>();
+
+    @ManyToMany(mappedBy = "devices")
+    private Set<User> users;
 
     public Long getId() {
         return id;
@@ -87,6 +92,14 @@ public class Device implements Serializable {
 
     public void setShares(Set<Share> shares) {
         this.shares = shares;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Override
