@@ -1,0 +1,10 @@
+{
+    "dinoApp": {
+        "RoomTypeEnum" : {
+            "null": "",
+            "BEDROOM": "BEDROOM",
+            "GARDEN": "GARDEN",
+            "KITCHEN": "KITCHEN"
+        }
+    }
+}

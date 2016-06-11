@@ -10,6 +10,8 @@
                 "room": "Room",
                 "device": "Device",
                 "share": "Share",
+                "action": "Action",
+                "macro": "Macro",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,23 @@
+{
+    "dinoApp": {
+        "macro" : {
+            "home": {
+                "title": "Macros",
+                "createLabel": "Create a new Macro",
+                "createOrEditLabel": "Create or edit a Macro",
+                "search": "Search for Macro"
+            },
+            "created": "A new Macro is created with identifier {{ param }}",
+            "updated": "A Macro is updated with identifier {{ param }}",
+            "deleted": "A Macro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Macro {{ id }}?"
+            },
+            "detail": {
+                "title": "Macro"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

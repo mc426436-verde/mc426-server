@@ -42,10 +42,10 @@ import br.unicamp.ic.timerverde.domain.enumeration.DeviceStatusEnum;
 @IntegrationTest
 public class DeviceResourceIntTest {
 
-    private static final String DEFAULT_DEVICE_NAME = "AAAAA";
-    private static final String UPDATED_DEVICE_NAME = "BBBBB";
-    private static final String DEFAULT_DEVICE_DESCRIPTION = "AAAAA";
-    private static final String UPDATED_DEVICE_DESCRIPTION = "BBBBB";
+    private static final String DEFAULT_NAME = "AAAAA";
+    private static final String UPDATED_NAME = "BBBBB";
+    private static final String DEFAULT_DESCRIPTION = "AAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBB";
 
     private static final DeviceStatusEnum DEFAULT_STATUS = DeviceStatusEnum.ON;
     private static final DeviceStatusEnum UPDATED_STATUS = DeviceStatusEnum.OFF;
@@ -76,8 +76,8 @@ public class DeviceResourceIntTest {
     @Before
     public void initTest() {
         device = new Device();
-        device.setDeviceName(DEFAULT_DEVICE_NAME);
-        device.setDeviceDescription(DEFAULT_DEVICE_DESCRIPTION);
+        device.setName(DEFAULT_NAME);
+        device.setDescription(DEFAULT_DESCRIPTION);
         device.setStatus(DEFAULT_STATUS);
     }
 
@@ -97,8 +97,8 @@ public class DeviceResourceIntTest {
         List<Device> devices = deviceRepository.findAll();
         assertThat(devices).hasSize(databaseSizeBeforeCreate + 1);
         Device testDevice = devices.get(devices.size() - 1);
-        assertThat(testDevice.getDeviceName()).isEqualTo(DEFAULT_DEVICE_NAME);
-        assertThat(testDevice.getDeviceDescription()).isEqualTo(DEFAULT_DEVICE_DESCRIPTION);
+        assertThat(testDevice.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testDevice.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testDevice.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -113,8 +113,8 @@ public class DeviceResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(device.getId().intValue())))
-                .andExpect(jsonPath("$.[*].deviceName").value(hasItem(DEFAULT_DEVICE_NAME.toString())))
-                .andExpect(jsonPath("$.[*].deviceDescription").value(hasItem(DEFAULT_DEVICE_DESCRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
@@ -129,8 +129,8 @@ public class DeviceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(device.getId().intValue()))
-            .andExpect(jsonPath("$.deviceName").value(DEFAULT_DEVICE_NAME.toString()))
-            .andExpect(jsonPath("$.deviceDescription").value(DEFAULT_DEVICE_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -152,8 +152,8 @@ public class DeviceResourceIntTest {
         // Update the device
         Device updatedDevice = new Device();
         updatedDevice.setId(device.getId());
-        updatedDevice.setDeviceName(UPDATED_DEVICE_NAME);
-        updatedDevice.setDeviceDescription(UPDATED_DEVICE_DESCRIPTION);
+        updatedDevice.setName(UPDATED_NAME);
+        updatedDevice.setDescription(UPDATED_DESCRIPTION);
         updatedDevice.setStatus(UPDATED_STATUS);
 
         restDeviceMockMvc.perform(put("/api/devices")
@@ -165,8 +165,8 @@ public class DeviceResourceIntTest {
         List<Device> devices = deviceRepository.findAll();
         assertThat(devices).hasSize(databaseSizeBeforeUpdate);
         Device testDevice = devices.get(devices.size() - 1);
-        assertThat(testDevice.getDeviceName()).isEqualTo(UPDATED_DEVICE_NAME);
-        assertThat(testDevice.getDeviceDescription()).isEqualTo(UPDATED_DEVICE_DESCRIPTION);
+        assertThat(testDevice.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testDevice.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testDevice.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 

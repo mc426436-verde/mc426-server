@@ -1,0 +1,22 @@
+{
+    "dinoApp": {
+        "action" : {
+            "home": {
+                "title": "Actions",
+                "createLabel": "Criar novo Action",
+                "createOrEditLabel": "Criar ou editar Action",
+                "search": "Pesquisar por Action"
+            },
+            "created": "Um novo Action é criado com o identificador {{ param }}",
+            "updated": "Um Action é atualizado com o identificador {{ param }}",
+            "deleted": "Um Action é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Action {{ id }}?"
+            },
+            "detail": {
+                "title": "Action"
+            },
+            "status": "Status"
+        }
+    }
+}

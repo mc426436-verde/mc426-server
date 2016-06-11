@@ -3,13 +3,9 @@ package br.unicamp.ic.timerverde.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import java.util.Objects;
 
 import br.unicamp.ic.timerverde.domain.enumeration.DeviceStatusEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Device.
@@ -24,11 +20,11 @@ public class Device implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "device_name")
-    private String deviceName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "device_description")
-    private String deviceDescription;
+    @Column(name = "description")
+    private String description;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -36,15 +32,6 @@ public class Device implements Serializable {
 
     @ManyToOne
     private Room room;
-
-    @ManyToMany
-    @JoinTable(name = "device_share",
-               joinColumns = @JoinColumn(name="devices_id", referencedColumnName="ID"),
-               inverseJoinColumns = @JoinColumn(name="shares_id", referencedColumnName="ID"))
-    private Set<Share> shares = new HashSet<>();
-
-    @ManyToMany(mappedBy = "devices")
-    private Set<User> users;
 
     public Long getId() {
         return id;
@@ -54,20 +41,20 @@ public class Device implements Serializable {
         this.id = id;
     }
 
-    public String getDeviceName() {
-        return deviceName;
+    public String getName() {
+        return name;
     }
 
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDeviceDescription() {
-        return deviceDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDeviceDescription(String deviceDescription) {
-        this.deviceDescription = deviceDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public DeviceStatusEnum getStatus() {
@@ -84,22 +71,6 @@ public class Device implements Serializable {
 
     public void setRoom(Room room) {
         this.room = room;
-    }
-
-    public Set<Share> getShares() {
-        return shares;
-    }
-
-    public void setShares(Set<Share> shares) {
-        this.shares = shares;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
     }
 
     @Override
@@ -126,8 +97,8 @@ public class Device implements Serializable {
     public String toString() {
         return "Device{" +
             "id=" + id +
-            ", deviceName='" + deviceName + "'" +
-            ", deviceDescription='" + deviceDescription + "'" +
+            ", name='" + name + "'" +
+            ", description='" + description + "'" +
             ", status='" + status + "'" +
             '}';
     }

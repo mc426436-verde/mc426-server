@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="dinoApp.macro.detail.title">Macro</span> {{vm.macro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="dinoApp.macro.name">Name</span></dt>
+        <dd>
+            <span>{{vm.macro.name}}</span>
+        </dd>
+        <dt><span translate="dinoApp.macro.description">Description</span></dt>
+        <dd>
+            <span>{{vm.macro.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,15 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "status",
+      "fieldType": "DeviceStatusEnum",
+      "fieldValues": "ON,OFF"
+    }
+  ],
+  "changelogDate": "20160608214920",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

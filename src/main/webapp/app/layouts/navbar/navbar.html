@@ -35,6 +35,36 @@
                         &#xA0;<span translate="global.menu.entities.device">Device</span></a></li>
                         <li ui-sref-active="active" ><a ui-sref="share" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span translate="global.menu.entities.share">Share</span></a></li>
+                        <li ui-sref-active="active" >
+                            <a ui-sref="room" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span translate="global.menu.entities.room">Room</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" >
+                            <a ui-sref="device" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span translate="global.menu.entities.device">Device</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" >
+                            <a ui-sref="share" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span translate="global.menu.entities.share">Share</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" >
+                            <a ui-sref="action" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span translate="global.menu.entities.action">Action</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" >
+                            <a ui-sref="macro" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span translate="global.menu.entities.macro">Macro</span>
+                            </a>
+                        </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>

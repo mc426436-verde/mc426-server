@@ -16,11 +16,10 @@
             "detail": {
                 "title": "Device"
             },
-            "deviceName": "DeviceName",
-            "deviceDescription": "DeviceDescription",
+            "name": "Name",
+            "description": "Description",
             "status": "Status",
-            "room": "Room",
-            "share": "Share"
+            "room": "Room"
         }
     }
 }

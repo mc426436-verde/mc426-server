@@ -29,6 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import br.unicamp.ic.timerverde.domain.enumeration.RoomTypeEnum;
 
 /**
  * Test class for the RoomResource REST controller.
@@ -41,10 +42,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class RoomResourceIntTest {
 
-    private static final String DEFAULT_ROOM_NAME = "AAAAA";
-    private static final String UPDATED_ROOM_NAME = "BBBBB";
-    private static final String DEFAULT_ROOM_DESCRIPTION = "AAAAA";
-    private static final String UPDATED_ROOM_DESCRIPTION = "BBBBB";
+    private static final String DEFAULT_NAME = "AAAAA";
+    private static final String UPDATED_NAME = "BBBBB";
+    private static final String DEFAULT_DESCRIPTION = "AAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBB";
+
+    private static final RoomTypeEnum DEFAULT_TYPE = RoomTypeEnum.BEDROOM;
+    private static final RoomTypeEnum UPDATED_TYPE = RoomTypeEnum.GARDEN;
 
     @Inject
     private RoomRepository roomRepository;
@@ -72,8 +76,9 @@ public class RoomResourceIntTest {
     @Before
     public void initTest() {
         room = new Room();
-        room.setRoomName(DEFAULT_ROOM_NAME);
-        room.setRoomDescription(DEFAULT_ROOM_DESCRIPTION);
+        room.setName(DEFAULT_NAME);
+        room.setDescription(DEFAULT_DESCRIPTION);
+        room.setType(DEFAULT_TYPE);
     }
 
     @Test
@@ -92,8 +97,9 @@ public class RoomResourceIntTest {
         List<Room> rooms = roomRepository.findAll();
         assertThat(rooms).hasSize(databaseSizeBeforeCreate + 1);
         Room testRoom = rooms.get(rooms.size() - 1);
-        assertThat(testRoom.getRoomName()).isEqualTo(DEFAULT_ROOM_NAME);
-        assertThat(testRoom.getRoomDescription()).isEqualTo(DEFAULT_ROOM_DESCRIPTION);
+        assertThat(testRoom.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testRoom.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testRoom.getType()).isEqualTo(DEFAULT_TYPE);
     }
 
     @Test
@@ -107,8 +113,9 @@ public class RoomResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(room.getId().intValue())))
-                .andExpect(jsonPath("$.[*].roomName").value(hasItem(DEFAULT_ROOM_NAME.toString())))
-                .andExpect(jsonPath("$.[*].roomDescription").value(hasItem(DEFAULT_ROOM_DESCRIPTION.toString())));
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())));
     }
 
     @Test
@@ -122,8 +129,9 @@ public class RoomResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(room.getId().intValue()))
-            .andExpect(jsonPath("$.roomName").value(DEFAULT_ROOM_NAME.toString()))
-            .andExpect(jsonPath("$.roomDescription").value(DEFAULT_ROOM_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()));
     }
 
     @Test
@@ -144,8 +152,9 @@ public class RoomResourceIntTest {
         // Update the room
         Room updatedRoom = new Room();
         updatedRoom.setId(room.getId());
-        updatedRoom.setRoomName(UPDATED_ROOM_NAME);
-        updatedRoom.setRoomDescription(UPDATED_ROOM_DESCRIPTION);
+        updatedRoom.setName(UPDATED_NAME);
+        updatedRoom.setDescription(UPDATED_DESCRIPTION);
+        updatedRoom.setType(UPDATED_TYPE);
 
         restRoomMockMvc.perform(put("/api/rooms")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -156,8 +165,9 @@ public class RoomResourceIntTest {
         List<Room> rooms = roomRepository.findAll();
         assertThat(rooms).hasSize(databaseSizeBeforeUpdate);
         Room testRoom = rooms.get(rooms.size() - 1);
-        assertThat(testRoom.getRoomName()).isEqualTo(UPDATED_ROOM_NAME);
-        assertThat(testRoom.getRoomDescription()).isEqualTo(UPDATED_ROOM_DESCRIPTION);
+        assertThat(testRoom.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testRoom.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testRoom.getType()).isEqualTo(UPDATED_TYPE);
     }
 
     @Test

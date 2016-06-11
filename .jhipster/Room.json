@@ -11,13 +11,19 @@
   "fields": [
     {
       "fieldId": 1,
-      "fieldName": "roomName",
+      "fieldName": "name",
       "fieldType": "String"
     },
     {
       "fieldId": 2,
-      "fieldName": "roomDescription",
+      "fieldName": "description",
       "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "type",
+      "fieldType": "RoomTypeEnum",
+      "fieldValues": "BEDROOM,GARDEN,KITCHEN"
     }
   ],
   "changelogDate": "20160528214444",

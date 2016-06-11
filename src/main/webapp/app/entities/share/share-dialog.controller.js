@@ -5,18 +5,17 @@
         .module('dinoApp')
         .controller('ShareDialogController', ShareDialogController);
 
-    ShareDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Share', 'User', 'Device'];
+    ShareDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Share', 'User', 'Device'];
 
-    function ShareDialogController ($scope, $stateParams, $uibModalInstance, entity, Share, User, Device) {
+    function ShareDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Share, User, Device) {
         var vm = this;
         vm.share = entity;
         vm.users = User.query();
         vm.devices = Device.query();
-        vm.load = function(id) {
-            Share.get({id : id}, function(result) {
-                vm.share = result;
-            });
-        };
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('dinoApp:shareUpdate', result);

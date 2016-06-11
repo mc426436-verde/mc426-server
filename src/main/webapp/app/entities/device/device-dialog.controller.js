@@ -5,18 +5,16 @@
         .module('dinoApp')
         .controller('DeviceDialogController', DeviceDialogController);
 
-    DeviceDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Device', 'Room', 'Share'];
+    DeviceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Device', 'Room'];
 
-    function DeviceDialogController ($scope, $stateParams, $uibModalInstance, entity, Device, Room, Share) {
+    function DeviceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Device, Room) {
         var vm = this;
         vm.device = entity;
         vm.rooms = Room.query();
-        vm.shares = Share.query();
-        vm.load = function(id) {
-            Device.get({id : id}, function(result) {
-                vm.device = result;
-            });
-        };
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('dinoApp:deviceUpdate', result);

@@ -3,21 +3,22 @@
         "room" : {
             "home": {
                 "title": "Rooms",
-                "createLabel": "Create a new Room",
-                "createOrEditLabel": "Create or edit a Room",
-                "search": "Search for Room"
+                "createLabel": "Criar novo Room",
+                "createOrEditLabel": "Criar ou editar Room",
+                "search": "Pesquisar por Room"
             },
-            "created": "A new Room is created with identifier {{ param }}",
-            "updated": "A Room is updated with identifier {{ param }}",
-            "deleted": "A Room is deleted with identifier {{ param }}",
+            "created": "Um novo Room é criado com o identificador {{ param }}",
+            "updated": "Um Room é atualizado com o identificador {{ param }}",
+            "deleted": "Um Room é deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Room {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Room {{ id }}?"
             },
             "detail": {
                 "title": "Room"
             },
-            "roomName": "RoomName",
-            "roomDescription": "RoomDescription",
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
             "device": "Device"
         }
     }

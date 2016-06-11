@@ -8,21 +8,21 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.device.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.device.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="dinoApp.device.deviceName" for="field_deviceName">DeviceName</label>
-            <input type="text" class="form-control" name="deviceName" id="field_deviceName"
-                    ng-model="vm.device.deviceName"
+            <label class="control-label" translate="dinoApp.device.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.device.name"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="dinoApp.device.deviceDescription" for="field_deviceDescription">DeviceDescription</label>
-            <input type="text" class="form-control" name="deviceDescription" id="field_deviceDescription"
-                    ng-model="vm.device.deviceDescription"
+            <label class="control-label" translate="dinoApp.device.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.device.description"
                      />
         </div>
         <div class="form-group">
@@ -34,14 +34,10 @@
         </div>
 
         <div class="form-group">
-            <label translate="dinoApp.device.room" for="field_room">room</label>
+            <label translate="dinoApp.device.room" for="field_room">Room</label>
             <select class="form-control" id="field_room" name="room" ng-model="vm.device.room" ng-options="room as room.id for room in vm.rooms track by room.id">
                 <option value=""></option>
             </select>
-        </div>
-        <div class="form-group">
-            <label translate="dinoApp.device.share" for="field_share">share</label>
-            <select class="form-control" id="field_share" multiple name="share" ng-model="vm.device.shares" ng-options="share as share.id for share in vm.shares track by share.id"></select>
         </div>
     </div>
     <div class="modal-footer">

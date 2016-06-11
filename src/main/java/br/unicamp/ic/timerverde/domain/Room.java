@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
 
+import br.unicamp.ic.timerverde.domain.enumeration.RoomTypeEnum;
+
 /**
  * A Room.
  */
@@ -21,14 +23,17 @@ public class Room implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "room_name")
-    private String roomName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "room_description")
-    private String roomDescription;
+    @Column(name = "description")
+    private String description;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type")
+    private RoomTypeEnum type;
 
     @OneToMany(mappedBy = "room")
-    @JsonIgnore
     private Set<Device> devices = new HashSet<>();
 
     public Long getId() {
@@ -39,20 +44,28 @@ public class Room implements Serializable {
         this.id = id;
     }
 
-    public String getRoomName() {
-        return roomName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRoomDescription() {
-        return roomDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRoomDescription(String roomDescription) {
-        this.roomDescription = roomDescription;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public RoomTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(RoomTypeEnum type) {
+        this.type = type;
     }
 
     public Set<Device> getDevices() {
@@ -87,8 +100,9 @@ public class Room implements Serializable {
     public String toString() {
         return "Room{" +
             "id=" + id +
-            ", roomName='" + roomName + "'" +
-            ", roomDescription='" + roomDescription + "'" +
+            ", name='" + name + "'" +
+            ", description='" + description + "'" +
+            ", type='" + type + "'" +
             '}';
     }
 }

@@ -2,34 +2,24 @@
 <div>
     <h2><span translate="dinoApp.device.detail.title">Device</span> {{vm.device.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="dinoApp.device.deviceName">DeviceName</dt></dt>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="dinoApp.device.name">Name</span></dt>
         <dd>
-            <span>{{vm.device.deviceName}}<span>
+            <span>{{vm.device.name}}</span>
         </dd>
-        <hr>
-        <dt><span translate="dinoApp.device.deviceDescription">DeviceDescription</dt></dt>
+        <dt><span translate="dinoApp.device.description">Description</span></dt>
         <dd>
-            <span>{{vm.device.deviceDescription}}<span>
+            <span>{{vm.device.description}}</span>
         </dd>
-        <hr>
-        <dt><span translate="dinoApp.device.status">Status</dt></dt>
+        <dt><span translate="dinoApp.device.status">Status</span></dt>
         <dd>
             <span translate="{{'dinoApp.DeviceStatusEnum.' + vm.device.status}}">{{vm.device.status}}</span>
         </dd>
-        <hr>
-        <dt><span translate="dinoApp.device.room">room</span></dt>
+        <dt><span translate="dinoApp.device.room">Room</span></dt>
         <dd>
             <a ui-sref="room-detail({id:vm.device.room.id})">{{vm.device.room.id}}</a>
         </dd>
-        <hr>
-        <dt><span translate="dinoApp.device.share">share</span></dt>
-        <dd>
-            <span ng-repeat="share in vm.device.shares">
-                <a ui-sref="share-detail({id: {{share.id}}})">{{share.id}}</a>{{$last ? '' : ', '}}
-            </span>
-        </dd>
-        <hr>
     </dl>
 
     <button type="submit"

@@ -73,8 +73,8 @@
                     resolve: {
                         entity: function () {
                             return {
-                                deviceName: null,
-                                deviceDescription: null,
+                                name: null,
+                                description: null,
                                 status: null,
                                 id: null
                             };

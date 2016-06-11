@@ -3,15 +3,15 @@
         "share" : {
             "home": {
                 "title": "Shares",
-                "createLabel": "Create a new Share",
-                "createOrEditLabel": "Create or edit a Share",
-                "search": "Search for Share"
+                "createLabel": "Criar novo Share",
+                "createOrEditLabel": "Criar ou editar Share",
+                "search": "Pesquisar por Share"
             },
-            "created": "A new Share is created with identifier {{ param }}",
-            "updated": "A Share is updated with identifier {{ param }}",
-            "deleted": "A Share is deleted with identifier {{ param }}",
+            "created": "Um novo Share é criado com o identificador {{ param }}",
+            "updated": "Um Share é atualizado com o identificador {{ param }}",
+            "deleted": "Um Share é deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Share {{ id }}?"
+                "question": "Tem certeza de que deseja excluir Share {{ id }}?"
             },
             "detail": {
                 "title": "Share"

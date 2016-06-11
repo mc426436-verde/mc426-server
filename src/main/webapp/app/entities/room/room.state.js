@@ -26,6 +26,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('room');
+                    $translatePartialLoader.addPart('roomTypeEnum');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -48,6 +49,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('room');
+                    $translatePartialLoader.addPart('roomTypeEnum');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Room', function($stateParams, Room) {
@@ -71,8 +73,9 @@
                     resolve: {
                         entity: function () {
                             return {
-                                roomName: null,
-                                roomDescription: null,
+                                name: null,
+                                description: null,
+                                type: null,
                                 id: null
                             };
                         }

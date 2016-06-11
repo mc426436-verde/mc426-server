@@ -8,22 +8,30 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.room.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.room.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="dinoApp.room.roomName" for="field_roomName">RoomName</label>
-            <input type="text" class="form-control" name="roomName" id="field_roomName"
-                    ng-model="vm.room.roomName"
+            <label class="control-label" translate="dinoApp.room.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.room.name"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="dinoApp.room.roomDescription" for="field_roomDescription">RoomDescription</label>
-            <input type="text" class="form-control" name="roomDescription" id="field_roomDescription"
-                    ng-model="vm.room.roomDescription"
+            <label class="control-label" translate="dinoApp.room.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.room.description"
                      />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="dinoApp.room.type" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.room.type" id="field_type">
+                <option value="BEDROOM" translate="dinoApp.RoomTypeEnum.BEDROOM">BEDROOM</option>
+                <option value="GARDEN" translate="dinoApp.RoomTypeEnum.GARDEN">GARDEN</option>
+                <option value="KITCHEN" translate="dinoApp.RoomTypeEnum.KITCHEN">KITCHEN</option>
+            </select>
         </div>
 
     </div>

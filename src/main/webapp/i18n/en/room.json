@@ -16,8 +16,9 @@
             "detail": {
                 "title": "Room"
             },
-            "roomName": "RoomName",
-            "roomDescription": "RoomDescription",
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
             "device": "Device"
         }
     }
