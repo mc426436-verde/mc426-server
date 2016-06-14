@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="br.unicamp.ic.timerverde" level="@logback.loglevel@"/>
+    <logger name="br.unicamp.ic.timeverde" level="@logback.loglevel@"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>

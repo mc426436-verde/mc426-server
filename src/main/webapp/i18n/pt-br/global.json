@@ -9,7 +9,6 @@
                 "main": "Entidades",
                 "room": "Room",
                 "device": "Device",
-                "share": "Share",
                 "action": "Action",
                 "macro": "Macro",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
@@ -51,7 +50,7 @@
         "messages": {
             "info": {
                 "authenticated": "Para <a class=\"alert-link\" href=\"\" ng-click=\"vm.login()\">entrar</a>, utilize as seguintes contas padrões:<br/>- Administrador (usuário=\"admin\" and senha=\"admin\") <br/>- Usuário (usuário=\"user\" and senha=\"user\").",
-                "register": "Não possui uma conta ainda? <a class=\"alert-link\" ui-sref=\"register\">Crie uma nova conta</a>"
+                "register": "Não possui uma conta ainda? <a class=\"alert-link\" href=\"\" ng-click=\"vm.register()\">Crie uma nova conta</a>"
             },
             "error": {
                 "dontmatch" : "A senha e sua confirmação devem ser iguais!"
@@ -78,6 +77,9 @@
         },
         "field": {
             "id" : "Código"
+        },
+        "ribbon": {
+            "dev":"Development"
         }
     },
     "entity": {
@@ -88,6 +90,7 @@
             "cancel": "Cancelar",
             "delete": "Excluir",
             "edit": "Editar",
+            "open": "Open",
             "save": "Salvar",
             "view": "Visualizar"
         },
@@ -113,6 +116,7 @@
     },
     "error": {
         "server.not.reachable": "Servidor indisponível",
+        "url.not.found": "Not found",
         "NotNull": "O Campo {{fieldName}} não pode ser vazio!",
         "Size": "O campo {{fieldName}} não obedece os requisitos de tamanho mínimo ou máximo!",
         "userexists": "Usuário já existente!",

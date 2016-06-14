@@ -31,7 +31,7 @@
             <column name="first_name" type="varchar(50)"/>
             <column name="last_name" type="varchar(50)"/>
             <column name="email" type="varchar(100)">
-                <constraints unique="true" nullable="false"/>
+                <constraints unique="true" nullable="true"/>
             </column>
             <column name="activated" type="boolean" valueBoolean="false">
                 <constraints nullable="false" />
@@ -155,7 +155,7 @@
     </changeSet>
     
     <!-- Manage the OAuth authentication -->
-    <changeSet id="2" author="jhipster">
+    <changeSet id="00000000000002" author="jhipster">
         <createTable tableName="oauth_client_details">
             <column name="client_id" type="varchar(255)">
                 <constraints nullable="false" primaryKey="true"/>

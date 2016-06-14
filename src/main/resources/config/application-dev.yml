@@ -24,9 +24,9 @@ spring:
         password:
     h2:
         console:
-            enabled: true
+            enabled: false
     jpa:
-        database-platform: br.unicamp.ic.timerverde.domain.util.FixedH2Dialect
+        database-platform: br.unicamp.ic.timeverde.domain.util.FixedH2Dialect
         database: H2
         show_sql: true
         properties:
@@ -51,6 +51,13 @@ server:
 # ===================================================================
 
 jhipster:
+    security:
+        authentication:
+            oauth:
+                clientid: dinoapp
+                secret: my-secret-token-to-change-in-production
+                # Token is valid 30 minutes
+                tokenValidityInSeconds: 1800
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: dino@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
@@ -64,7 +71,7 @@ jhipster:
             host: localhost
             port: 2003
             prefix: dino
-        logs: # report metrics in the logs
+        logs: # Reports Dropwizard metrics in the logs
             enabled: false
             reportFrequency: 60 # in seconds
     logging:
@@ -73,3 +80,5 @@ jhipster:
             host: localhost
             port: 5000
             queueSize: 512
+    swagger: # swagger is enabled. It can be disabled by pasing 'no-swagger' profile at run time as well
+        enabled: true

@@ -1,32 +1,32 @@
 entity Room {
-	name String,
-  description String,
-	type RoomTypeEnum
+    name String,
+    description String,
+    type RoomTypeEnum
 }
 
 entity Device {
-	name String,
-  description String,
-	status DeviceStatusEnum
+    name String,
+    description String,
+    status DeviceStatusEnum
 }
 
 entity Action {
-	status DeviceStatusEnum
+    status DeviceStatusEnum
 }
 
 entity Macro {
-	name String,
-	description String
+    name String,
+    description String
 }
 
 enum DeviceStatusEnum {
-	ON, OFF
+    ON, OFF
 }
 
 enum RoomTypeEnum {
-	BEDROOM, GARDEN, KITCHEN
+    BEDROOM, GARDEN, KITCHEN
 }
 
 relationship OneToMany {
-	Room{device} to Device
+    Room{device} to Device
 }

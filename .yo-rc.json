@@ -1,9 +1,9 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "3.0.0",
+    "jhipsterVersion": "3.3.0",
     "baseName": "dino",
-    "packageName": "br.unicamp.ic.timerverde",
-    "packageFolder": "br/unicamp/ic/timerverde",
+    "packageName": "br.unicamp.ic.timeverde",
+    "packageFolder": "br/unicamp/ic/timeverde",
     "serverPort": "8080",
     "authenticationType": "oauth2",
     "hibernateCache": "no",
@@ -16,14 +16,13 @@
     "buildTool": "gradle",
     "useSass": true,
     "applicationType": "monolith",
-    "testFrameworks": [
-      "cucumber"
-    ],
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
     "enableTranslation": true,
-    "nativeLanguage": "en",
+    "nativeLanguage": "pt-br",
     "languages": [
-      "en",
-      "pt-br"
+      "pt-br",
+      "en"
     ]
   }
 }

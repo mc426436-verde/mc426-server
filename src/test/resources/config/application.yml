@@ -11,13 +11,15 @@
 # ===================================================================
 
 spring:
+    application:
+        name: dino
     datasource:
         url: jdbc:h2:mem:dino;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
     jpa:
-        database-platform: br.unicamp.ic.timerverde.domain.util.FixedH2Dialect
+        database-platform: br.unicamp.ic.timeverde.domain.util.FixedH2Dialect
         database: H2
         open-in-view: false
         show_sql: true
@@ -61,7 +63,7 @@ jhipster:
         authentication:
             oauth:
                 clientid: dinoapp
-                secret: mySecretOAuthSecret
+                secret: my-secret-token-to-change-in-production
                 # Token is valid 30 minutes
                 tokenValidityInSeconds: 1800
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
@@ -76,3 +78,4 @@ jhipster:
         contactEmail:
         license:
         licenseUrl:
+        enabled: false
