@@ -23,6 +23,7 @@
                     <th><span translate="dinoApp.device.description">Description</span></th>
                     <th><span translate="dinoApp.device.status">Status</span></th>
                     <th><span translate="dinoApp.device.room">Room</span></th>
+                    <th><span translate="dinoApp.device.user">User</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,6 +35,11 @@
                     <td translate="{{'dinoApp.DeviceStatusEnum.' + device.status}}">{{device.status}}</td>
                     <td>
                         <a ui-sref="room-detail({id:device.room.id})">{{device.room.id}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="user in device.users">
+                            {{user.email}}{{$last ? '' : ', '}}
+                        </span>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -1,33 +1,48 @@
 {
-  "relationships": [
-    {
-      "relationshipId": 1,
-      "relationshipName": "room",
-      "otherEntityName": "room",
-      "relationshipType": "many-to-one",
-      "otherEntityField": "id"
-    }
-  ],
-  "fields": [
-    {
-      "fieldId": 1,
-      "fieldName": "name",
-      "fieldType": "String"
-    },
-    {
-      "fieldId": 2,
-      "fieldName": "description",
-      "fieldType": "String"
-    },
-    {
-      "fieldId": 3,
-      "fieldName": "status",
-      "fieldType": "DeviceStatusEnum",
-      "fieldValues": "ON,OFF"
-    }
-  ],
-  "changelogDate": "20160614232739",
-  "dto": "no",
-  "pagination": "no",
-  "service": "no"
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "device"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "email",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "status",
+            "fieldType": "DeviceStatusEnum",
+            "fieldValues": "ON,OFF"
+        }
+    ],
+    "changelogDate": "20160614232739",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "device",
+    "pagination": "no"
 }

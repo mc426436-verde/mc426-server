@@ -19,7 +19,9 @@
             "name": "Name",
             "description": "Description",
             "status": "Status",
-            "room": "Room"
+            "room": "Room",
+            "user": "User",
+            "user": "User"
         }
     }
 }

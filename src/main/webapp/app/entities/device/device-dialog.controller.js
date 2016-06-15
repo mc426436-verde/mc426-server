@@ -5,12 +5,13 @@
         .module('dinoApp')
         .controller('DeviceDialogController', DeviceDialogController);
 
-    DeviceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Device', 'Room'];
+    DeviceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Device', 'Room', 'User'];
 
-    function DeviceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Device, Room) {
+    function DeviceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Device, Room, User) {
         var vm = this;
         vm.device = entity;
         vm.rooms = Room.query();
+        vm.users = User.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

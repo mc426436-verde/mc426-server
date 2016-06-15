@@ -20,6 +20,12 @@
         <dd>
             <a ui-sref="room-detail({id:vm.device.room.id})">{{vm.device.room.id}}</a>
         </dd>
+        <dt><span translate="dinoApp.device.user">User</span></dt>
+        <dd>
+            <span ng-repeat="user in vm.device.users">
+                {{user.email}}{{$last ? '' : ', '}}
+            </span>
+        </dd>
     </dl>
 
     <button type="submit"

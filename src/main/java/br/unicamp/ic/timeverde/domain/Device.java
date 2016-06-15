@@ -1,8 +1,11 @@
 package br.unicamp.ic.timeverde.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import br.unicamp.ic.timeverde.domain.enumeration.DeviceStatusEnum;
@@ -32,6 +35,12 @@ public class Device implements Serializable {
 
     @ManyToOne
     private Room room;
+
+    @ManyToMany
+    @JoinTable(name = "device_user",
+               joinColumns = @JoinColumn(name="devices_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="users_id", referencedColumnName="ID"))
+    private Set<User> users = new HashSet<>();
 
     public Long getId() {
         return id;

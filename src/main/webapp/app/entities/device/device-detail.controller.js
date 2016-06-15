@@ -5,9 +5,9 @@
         .module('dinoApp')
         .controller('DeviceDetailController', DeviceDetailController);
 
-    DeviceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Device', 'Room'];
+    DeviceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Device', 'Room', 'User'];
 
-    function DeviceDetailController($scope, $rootScope, $stateParams, entity, Device, Room) {
+    function DeviceDetailController($scope, $rootScope, $stateParams, entity, Device, Room, User) {
         var vm = this;
         vm.device = entity;
         
