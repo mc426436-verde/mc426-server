@@ -5,11 +5,12 @@
         .module('dinoApp')
         .controller('ActionDialogController', ActionDialogController);
 
-    ActionDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Action'];
+    ActionDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Action', 'Device'];
 
-    function ActionDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Action) {
+    function ActionDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Action, Device) {
         var vm = this;
         vm.action = entity;
+        vm.devices = Device.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

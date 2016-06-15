@@ -5,9 +5,9 @@
         .module('dinoApp')
         .controller('ActionDetailController', ActionDetailController);
 
-    ActionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Action'];
+    ActionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Action', 'Device'];
 
-    function ActionDetailController($scope, $rootScope, $stateParams, entity, Action) {
+    function ActionDetailController($scope, $rootScope, $stateParams, entity, Action, Device) {
         var vm = this;
         vm.action = entity;
         

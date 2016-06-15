@@ -30,3 +30,11 @@ enum RoomTypeEnum {
 relationship OneToMany {
     Room{device} to Device
 }
+
+relationship ManyToMany {
+    Macro{actions} to Action
+}
+
+relationship Action {
+    Action{device} to Device
+}

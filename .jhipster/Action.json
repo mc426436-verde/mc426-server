@@ -1,15 +1,23 @@
 {
-  "relationships": [],
-  "fields": [
-    {
-      "fieldId": 1,
-      "fieldName": "status",
-      "fieldType": "DeviceStatusEnum",
-      "fieldValues": "ON,OFF"
-    }
-  ],
-  "changelogDate": "20160614232740",
-  "dto": "no",
-  "pagination": "no",
-  "service": "no"
+    "relationships": [
+        {
+            "relationshipName": "device",
+            "otherEntityName": "device",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "status",
+            "fieldType": "DeviceStatusEnum",
+            "fieldValues": "ON,OFF"
+        }
+    ],
+    "changelogDate": "20160614232740",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "action",
+    "pagination": "no"
 }

@@ -17,7 +17,8 @@
                 "title": "Macro"
             },
             "name": "Name",
-            "description": "Description"
+            "description": "Description",
+            "action": "Action"
         }
     }
 }

@@ -32,5 +32,16 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
+        <createTable tableName="macro_action">
+            <column name="actions_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="macros_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="macros_id, actions_id" tableName="macro_action"/>
+        
     </changeSet>
 </databaseChangeLog>

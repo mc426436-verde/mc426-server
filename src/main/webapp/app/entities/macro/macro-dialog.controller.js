@@ -5,11 +5,12 @@
         .module('dinoApp')
         .controller('MacroDialogController', MacroDialogController);
 
-    MacroDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Macro'];
+    MacroDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Macro', 'Action'];
 
-    function MacroDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Macro) {
+    function MacroDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Macro, Action) {
         var vm = this;
         vm.macro = entity;
+        vm.actions = Action.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

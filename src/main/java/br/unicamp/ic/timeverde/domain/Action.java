@@ -24,6 +24,9 @@ public class Action implements Serializable {
     @Column(name = "status")
     private DeviceStatusEnum status;
 
+    @ManyToOne
+    private Device device;
+
     public Long getId() {
         return id;
     }
@@ -38,6 +41,14 @@ public class Action implements Serializable {
 
     public void setStatus(DeviceStatusEnum status) {
         this.status = status;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
     }
 
     @Override

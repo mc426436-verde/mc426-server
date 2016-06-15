@@ -3,6 +3,8 @@ package br.unicamp.ic.timeverde.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -23,6 +25,12 @@ public class Macro implements Serializable {
 
     @Column(name = "description")
     private String description;
+
+    @ManyToMany
+    @JoinTable(name = "macro_action",
+               joinColumns = @JoinColumn(name="macros_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="actions_id", referencedColumnName="ID"))
+    private Set<Action> actions = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -46,6 +54,14 @@ public class Macro implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(Set<Action> actions) {
+        this.actions = actions;
     }
 
     @Override

@@ -87,7 +87,7 @@ public class MacroResource {
     @Timed
     public List<Macro> getAllMacros() {
         log.debug("REST request to get all Macros");
-        List<Macro> macros = macroRepository.findAll();
+        List<Macro> macros = macroRepository.findAllWithEagerRelationships();
         return macros;
     }
 
@@ -103,7 +103,7 @@ public class MacroResource {
     @Timed
     public ResponseEntity<Macro> getMacro(@PathVariable Long id) {
         log.debug("REST request to get Macro : {}", id);
-        Macro macro = macroRepository.findOne(id);
+        Macro macro = macroRepository.findOneWithEagerRelationships(id);
         return Optional.ofNullable(macro)
             .map(result -> new ResponseEntity<>(
                 result,

@@ -5,9 +5,9 @@
         .module('dinoApp')
         .controller('MacroDetailController', MacroDetailController);
 
-    MacroDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Macro'];
+    MacroDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Macro', 'Action'];
 
-    function MacroDetailController($scope, $rootScope, $stateParams, entity, Macro) {
+    function MacroDetailController($scope, $rootScope, $stateParams, entity, Macro, Action) {
         var vm = this;
         vm.macro = entity;
         

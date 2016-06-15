@@ -1,19 +1,28 @@
 {
-  "relationships": [],
-  "fields": [
-    {
-      "fieldId": 1,
-      "fieldName": "name",
-      "fieldType": "String"
-    },
-    {
-      "fieldId": 2,
-      "fieldName": "description",
-      "fieldType": "String"
-    }
-  ],
-  "changelogDate": "20160614232741",
-  "dto": "no",
-  "pagination": "no",
-  "service": "no"
+    "relationships": [
+        {
+            "relationshipName": "action",
+            "otherEntityName": "action",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160614232741",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "macro",
+    "pagination": "no"
 }

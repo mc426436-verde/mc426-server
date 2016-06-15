@@ -12,6 +12,12 @@
         <dd>
             <span>{{vm.macro.description}}</span>
         </dd>
+        <dt><span translate="dinoApp.macro.action">Action</span></dt>
+        <dd>
+            <span ng-repeat="action in vm.macro.actions">
+                <a ui-sref="action-detail({id: {{action.id}}})">{{action.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
     </dl>
 
     <button type="submit"

@@ -21,6 +21,7 @@
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="dinoApp.macro.name">Name</span></th>
                     <th><span translate="dinoApp.macro.description">Description</span></th>
+                    <th><span translate="dinoApp.macro.action">Action</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,6 +30,11 @@
                     <td><a ui-sref="macro-detail({id:macro.id})">{{macro.id}}</a></td>
                     <td>{{macro.name}}</td>
                     <td>{{macro.description}}</td>
+                    <td>
+                        <span ng-repeat="action in macro.actions">
+                            <a class="form-control-static" ui-sref="action-detail({id: {{action.id}}})">{{action.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

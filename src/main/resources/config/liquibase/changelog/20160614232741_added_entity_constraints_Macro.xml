@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Macro.
+    -->
+    <changeSet id="20160614232741-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="macros_id"
+                                 baseTableName="macro_action"
+                                 constraintName="fk_macro_action_action_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="macro"/>
+        <addForeignKeyConstraint baseColumnNames="actions_id"
+                                 baseTableName="macro_action"
+                                 constraintName="fk_macro_action_macro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="action"/>
+        
+    </changeSet>
+</databaseChangeLog>

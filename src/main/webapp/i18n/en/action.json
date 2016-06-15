@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Action"
             },
-            "status": "Status"
+            "status": "Status",
+            "device": "Device"
         }
     }
 }
