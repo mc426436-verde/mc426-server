@@ -1,14 +1,23 @@
 package br.unicamp.ic.timeverde.domain;
 
+import br.unicamp.ic.timeverde.repository.DeviceRepository;
+import br.unicamp.ic.timeverde.web.rest.DeviceResource;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.inject.Inject;
 import javax.persistence.*;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.Socket;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
 
 import br.unicamp.ic.timeverde.domain.enumeration.DeviceStatusEnum;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 
 /**
  * A Device.
@@ -16,6 +25,13 @@ import br.unicamp.ic.timeverde.domain.enumeration.DeviceStatusEnum;
 @Entity
 @Table(name = "device")
 public class Device implements Serializable {
+
+    @Transient
+    private final Logger log = LoggerFactory.getLogger(DeviceResource.class);
+
+    @Inject
+    @Transient
+    private Environment env;
 
     private static final long serialVersionUID = 1L;
 
@@ -110,5 +126,20 @@ public class Device implements Serializable {
             ", description='" + description + "'" +
             ", status='" + status + "'" +
             '}';
+    }
+
+    public boolean updateArduino() {
+        try {
+            String ip = this.env.getProperty("dino.arduino.ip");
+            String port = this.env.getProperty("dino.arduino.port");
+            Socket clientSocket = new Socket(ip, Integer.valueOf(port));
+            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+            outToServer.writeBytes(this.getId() + ":" + this.getStatus().value() + '\n');
+            clientSocket.close();
+        } catch (IOException e) {
+            log.error("Failed to update arduino");
+            return false;
+        }
+        return true;
     }
 }

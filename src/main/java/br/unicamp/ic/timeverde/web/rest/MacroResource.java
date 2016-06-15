@@ -1,5 +1,6 @@
 package br.unicamp.ic.timeverde.web.rest;
 
+import br.unicamp.ic.timeverde.domain.Device;
 import com.codahale.metrics.annotation.Timed;
 import br.unicamp.ic.timeverde.domain.Macro;
 import br.unicamp.ic.timeverde.repository.MacroRepository;
@@ -26,10 +27,10 @@ import java.util.Optional;
 public class MacroResource {
 
     private final Logger log = LoggerFactory.getLogger(MacroResource.class);
-        
+
     @Inject
     private MacroRepository macroRepository;
-    
+
     /**
      * POST  /macros : Create a new macro.
      *
@@ -127,4 +128,27 @@ public class MacroResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("macro", id.toString())).build();
     }
 
+    /**
+     * GET  /macros/:id : runs the "id" macro.
+     *
+     * @param id the id of the macro to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the macro, or with status 404 (Not Found)
+     */
+    @RequestMapping(value = "/macros/run/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public boolean runMacro(@PathVariable Long id) {
+        log.debug("REST request to get Macro : {}", id);
+        Macro macro = macroRepository.findOneWithEagerRelationships(id);
+
+        macro.getActions().forEach( action -> {
+            Device device = action.getDevice();
+            if(!device.getStatus().equals(action.getStatus())){
+                device.setStatus(action.getStatus());
+                device.updateArduino();
+            }
+        });
+        return true;
+    }
 }

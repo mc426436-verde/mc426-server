@@ -28,7 +28,7 @@
 
         <div class="form-group">
             <label translate="dinoApp.macro.action" for="field_action">Action</label>
-            <select class="form-control" id="field_action" multiple name="action" ng-model="vm.macro.actions" ng-options="action as action.id for action in vm.actions track by action.id"></select>
+            <select class="form-control" id="field_action" multiple name="action" ng-model="vm.macro.actions" ng-options="action as action.name for action in vm.actions track by action.id"></select>
         </div>
     </div>
     <div class="modal-footer">

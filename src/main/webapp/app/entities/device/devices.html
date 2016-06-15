@@ -34,7 +34,7 @@
                     <td>{{device.description}}</td>
                     <td translate="{{'dinoApp.DeviceStatusEnum.' + device.status}}">{{device.status}}</td>
                     <td>
-                        <a ui-sref="room-detail({id:device.room.id})">{{device.room.id}}</a>
+                        <a ui-sref="room-detail({id:device.room.id})">{{device.room.name}}</a>
                     </td>
                     <td>
                         <span ng-repeat="user in device.users">

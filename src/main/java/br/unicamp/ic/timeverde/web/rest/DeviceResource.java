@@ -154,7 +154,7 @@ public class DeviceResource {
             } else {
                 result.setStatus(DeviceStatusEnum.OFF);
             }
-            if(updateArduino(result)) {
+            if(result.updateArduino()) {
                 deviceRepository.save(result);
             }
         });
@@ -192,20 +192,4 @@ public class DeviceResource {
             .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-    private boolean updateArduino(Device device) {
-        try {
-            String ip = this.env.getProperty("dino.arduino.ip");
-            String port = this.env.getProperty("dino.arduino.port");
-            Socket clientSocket = new Socket(ip, Integer.valueOf(port));
-            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-            outToServer.writeBytes(device.getId() + ":" + device.getStatus().value() + '\n');
-            clientSocket.close();
-        } catch (IOException e) {
-            log.error("Failed to update arduino");
-            return false;
-        }
-        return true;
-    }
-
 }

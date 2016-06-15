@@ -15,7 +15,7 @@
         <dt><span translate="dinoApp.macro.action">Action</span></dt>
         <dd>
             <span ng-repeat="action in vm.macro.actions">
-                <a ui-sref="action-detail({id: {{action.id}}})">{{action.id}}</a>{{$last ? '' : ', '}}
+                <a ui-sref="action-detail({id: {{action.id}}})">{{action.name}}</a>{{$last ? '' : ', '}}
             </span>
         </dd>
     </dl>

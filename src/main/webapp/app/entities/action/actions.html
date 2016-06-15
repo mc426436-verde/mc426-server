@@ -29,7 +29,7 @@
                     <td><a ui-sref="action-detail({id:action.id})">{{action.id}}</a></td>
                     <td translate="{{'dinoApp.DeviceStatusEnum.' + action.status}}">{{action.status}}</td>
                     <td>
-                        <a ui-sref="device-detail({id:action.device.id})">{{action.device.id}}</a>
+                        <a ui-sref="device-detail({id:action.device.id})">{{action.device.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

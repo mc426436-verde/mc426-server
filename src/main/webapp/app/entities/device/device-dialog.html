@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label translate="dinoApp.device.room" for="field_room">Room</label>
-            <select class="form-control" id="field_room" name="room" ng-model="vm.device.room" ng-options="room as room.id for room in vm.rooms track by room.id">
+            <select class="form-control" id="field_room" name="room" ng-model="vm.device.room" ng-options="room as room.name for room in vm.rooms track by room.id">
                 <option value=""></option>
             </select>
         </div>

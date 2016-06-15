@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label translate="dinoApp.action.device" for="field_device">Device</label>
-            <select class="form-control" id="field_device" name="device" ng-model="vm.action.device" ng-options="device as device.id for device in vm.devices track by device.id">
+            <select class="form-control" id="field_device" name="device" ng-model="vm.action.device" ng-options="device as device.name for device in vm.devices track by device.id">
                 <option value=""></option>
             </select>
         </div>

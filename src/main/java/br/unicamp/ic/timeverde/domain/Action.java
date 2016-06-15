@@ -51,6 +51,10 @@ public class Action implements Serializable {
         this.device = device;
     }
 
+    public String getName(){
+        return this.device.getName() + ":" + this.getStatus().toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -76,6 +80,7 @@ public class Action implements Serializable {
         return "Action{" +
             "id=" + id +
             ", status='" + status + "'" +
+            ", name='" + getName() + "'" +
             '}';
     }
 }

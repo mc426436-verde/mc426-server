@@ -32,7 +32,7 @@
                     <td>{{macro.description}}</td>
                     <td>
                         <span ng-repeat="action in macro.actions">
-                            <a class="form-control-static" ui-sref="action-detail({id: {{action.id}}})">{{action.id}}</a>{{$last ? '' : ', '}}
+                            <a class="form-control-static" ui-sref="action-detail({id: {{action.id}}})">{{action.name}}</a>{{$last ? '' : ', '}}
                         </span>
                     </td>
                     <td class="text-right">
