@@ -17,6 +17,7 @@
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="content/css/dino.css">
 </head>
 <body ng-app="dinoApp">
     <!--[if lt IE 9]>
@@ -28,11 +29,6 @@
         <div class="well" ui-view="content">
             <!-- Angular views -->
         </div>
-
-        <div class="footer" ng-cloak>
-            <p translate="footer">This is your footer</p>
-        </div>
-    </div>
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
@@ -199,5 +195,9 @@
     <!-- endinject -->
     <!-- endbuild -->
 
+    <!-- código do animador css -->
+    <script type = "text/javascript" src="content/js/wow.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="content/css/animate.min.css">
+    <script>new WOW().init();</script>
 </body>
 </html>
