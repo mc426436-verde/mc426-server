@@ -91,6 +91,14 @@ public class Device implements Serializable {
         this.room = room;
     }
 
+    public Set<User> getUsers(){
+        return users;
+    }
+
+    public void setUsers(Set<User> users){
+        this.users = users;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
