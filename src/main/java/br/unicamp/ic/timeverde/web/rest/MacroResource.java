@@ -31,6 +31,9 @@ public class MacroResource {
     @Inject
     private MacroRepository macroRepository;
 
+    @Inject
+    private DeviceResource deviceResource;
+
     /**
      * POST  /macros : Create a new macro.
      *
@@ -146,7 +149,7 @@ public class MacroResource {
             Device device = action.getDevice();
             if(!device.getStatus().equals(action.getStatus())){
                 device.setStatus(action.getStatus());
-                device.updateArduino();
+                deviceResource.updateArduino(device);
             }
         });
         return true;

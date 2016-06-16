@@ -8,11 +8,12 @@ public enum DeviceStatusEnum {
     ON(1);
 
     private int status;
-        DeviceStatusEnum(int status) {
+
+    DeviceStatusEnum(int status) {
          this.status = status;
     }
 
-        public int value(){
+    public int value(){
         return this.status;
     }
 }
