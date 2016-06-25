@@ -148,8 +148,7 @@ public class MacroResource {
         macro.getActions().forEach( action -> {
             Device device = action.getDevice();
             if(!device.getStatus().equals(action.getStatus())){
-                device.setStatus(action.getStatus());
-                deviceResource.updateArduino(device);
+                deviceResource.toggleStatus(device.getId());
             }
         });
         return true;
