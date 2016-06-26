@@ -1,0 +1,24 @@
+{
+    "dinoApp": {
+        "macroScheduling" : {
+            "home": {
+                "title": "Macro Schedulings",
+                "createLabel": "Create a new Macro Scheduling",
+                "createOrEditLabel": "Create or edit a Macro Scheduling",
+                "search": "Search for Macro Scheduling"
+            },
+            "created": "A new Macro Scheduling is created with identifier {{ param }}",
+            "updated": "A Macro Scheduling is updated with identifier {{ param }}",
+            "deleted": "A Macro Scheduling is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Macro Scheduling {{ id }}?"
+            },
+            "detail": {
+                "title": "Macro Scheduling"
+            },
+            "time": "Time",
+            "daysInWeek": "Days In Week",
+            "macro": "Macro"
+        }
+    }
+}

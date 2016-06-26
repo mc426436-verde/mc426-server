@@ -11,6 +11,7 @@
                 "device": "Device",
                 "action": "Action",
                 "macro": "Macro",
+                "macroScheduling": "Macro Scheduling",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="dinoApp.macroScheduling.home.title">Macro Schedulings</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="macro-scheduling.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="dinoApp.macroScheduling.home.createLabel">
+                        Create new Macro Scheduling
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="dinoApp.macroScheduling.daysInWeek">Day Of Week</span></th>
+                    <th><span translate="dinoApp.macroScheduling.time">Time</span></th>
+                    <th><span translate="dinoApp.macroScheduling.macro">Macro</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="macroScheduling in vm.macroSchedulings track by macroScheduling.id">
+                    <td><a ui-sref="macro-scheduling-detail({id:macroScheduling.id})">{{macroScheduling.id}}</a></td>
+                    <td translate="{{'dinoApp.DaysInWeek.' + macroScheduling.daysInWeek}}">{{macroScheduling.daysInWeek}}</td>
+                    <td>{{macroScheduling.time}}</td>
+                    <td>
+                        <a ui-sref="macro-detail({id:macroScheduling.macro.id})">{{macroScheduling.macro.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="macro-scheduling-detail({id:macroScheduling.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="macro-scheduling.edit({id:macroScheduling.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="macro-scheduling.delete({id:macroScheduling.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

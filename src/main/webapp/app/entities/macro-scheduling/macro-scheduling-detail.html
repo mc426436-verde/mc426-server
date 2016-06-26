@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="dinoApp.macroScheduling.detail.title">Macro Scheduling</span> {{vm.macroScheduling.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="dinoApp.macroScheduling.daysInWeek">Day Of Week</span></dt>
+        <dd>
+            <span translate="{{'dinoApp.DaysInWeek.' + vm.macroScheduling.daysInWeek}}">{{vm.macroScheduling.daysInWeek}}</span>
+        </dd>
+        <dt><span translate="dinoApp.macroScheduling.time">Time</span></dt>
+        <dd>
+            <span>{{vm.macroScheduling.time}}</span>
+        </dd>
+        <dt><span translate="dinoApp.macroScheduling.macro">Macro</span></dt>
+        <dd>
+            <a ui-sref="macro-detail({id:vm.macroScheduling.macro.id})">{{vm.macroScheduling.macro.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

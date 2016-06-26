@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "macro",
+            "otherEntityName": "macro",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "daysInWeek",
+            "fieldType": "DaysInWeek",
+            "fieldValues": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160626011746",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "macro_scheduling",
+    "pagination": "no"
+}
