@@ -28,7 +28,7 @@
             <tbody>
                 <tr ng-repeat="macroScheduling in vm.macroSchedulings track by macroScheduling.id">
                     <td><a ui-sref="macro-scheduling-detail({id:macroScheduling.id})">{{macroScheduling.id}}</a></td>
-                    <td translate="{{'dinoApp.DaysInWeek.' + macroScheduling.daysInWeek}}">{{macroScheduling.daysInWeek}}</td>
+                    <td translate="{{macroScheduling.daysInWeek}}">{{macroScheduling.daysInWeek}}</td>
                     <td>{{macroScheduling.time}}</td>
                     <td>
                         <a ui-sref="macro-detail({id:macroScheduling.macro.id})">{{macroScheduling.macro.name}}</a>
